@@ -32,12 +32,20 @@ body {
   left: 0;
   opacity: 0;
 }
-.Burger-Container:hover .menu-icon {
+.Burger-Container.active .menu-icon {
   animation: rotate-out ease 0.7s forwards;
 }
 
-.Burger-Container:hover .cross-icon {
+.Burger-Container.active .cross-icon {
   animation: rotate-in ease 0.7s forwards;
+}
+
+.Burger-Container:not(.active) .menu-icon {
+  animation: rotate-in ease 0.7s forwards;
+}
+
+.Burger-Container:not(.active) .cross-icon {
+  animation: rotate-out ease 0.7s forwards;
 }
 @keyframes rotate-out {
   0% {
@@ -67,8 +75,10 @@ header .navbar {
 }
 .center-items {
   display: flex;
+  flex-direction: column;
   justify-content: center;
-  align-items: center;
+  align-items: start;
+  padding: 1rem;
   gap: 3rem;
 }
 .grey-string {
@@ -88,6 +98,7 @@ header .navbar {
   font-size: 0.875rem;
   padding: 0 1rem;
 }
+
 
 .navbar-btn:hover {
   background: #272729;
@@ -404,9 +415,52 @@ footer p {
   align-items: center;
   background: rgb(256, 256, 256, 0.8);
   backdrop-filter: blur(20px);
+  border-bottom: 1px solid #e4e4e7;
   z-index: 1000;
 }
+.mobile-nav-items {
+  width: 100%;
+  position: fixed;
+  right: 0;
+  top: 50px;
+  background: rgb(255, 255, 255, 0.7);
+  backdrop-filter: blur(20px);
+  padding-bottom: 1rem;
+  z-index: 1000;
+}
+.nav-items {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.mobile-navbar-btn{
+  position: relative;
+  width: 90%;
+  margin-left: .5rem;
+}
+.blur {
+  position: fixed;
+  height: 100%;
+  width: 100%;
+  top: 30%;
+  right: 0;
+  z-index: 999;
+  background: rgb(0, 0, 0, 0.2);
+}
 @media (min-width: 1024px) {
+  .mobile-nav-items {
+    display: none;
+  }
+  .blur {
+    display: none;
+  }
+  .center-items {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 3rem;
+  }
   .hero-section {
     margin-top: 0;
   }
