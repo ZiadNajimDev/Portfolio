@@ -9,7 +9,10 @@ html {
 body {
   font-family: poppins;
   overflow-y: hidden;
-  width: 100vw;
+  width: 100%;
+}
+html, body {
+  overflow-x: hidden;
 }
 header {
   display: none;
