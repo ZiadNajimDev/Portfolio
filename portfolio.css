@@ -11,8 +11,53 @@ body {
   overflow-y: hidden;
   width: 100%;
 }
-html, body {
+html,
+body {
   overflow-x: hidden;
+}
+.Burger-Container {
+  position: relative;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+}
+.menu-icon {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.cross-icon {
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0;
+}
+.Burger-Container:hover .menu-icon {
+  animation: rotate-out ease 0.7s forwards;
+}
+
+.Burger-Container:hover .cross-icon {
+  animation: rotate-in ease 0.7s forwards;
+}
+@keyframes rotate-out {
+  0% {
+    transform: rotate(0deg);
+    opacity: 1;
+  }
+  100% {
+    transform: rotate(-360deg);
+    opacity: 0;
+  }
+}
+@keyframes rotate-in {
+  0% {
+    transform: rotate(360deg);
+    opacity: 0;
+  }
+  100% {
+    transform: rotate(0deg);
+    opacity: 1;
+  }
 }
 header {
   display: none;
@@ -54,6 +99,7 @@ header .navbar {
   stroke: #65656b;
 }
 .app {
+  position: relative;
   background: white;
   width: 100%;
   padding: 0 2rem;
@@ -130,10 +176,11 @@ header .navbar {
   }
 }
 .hero-profile {
-  max-width: 96px;
-  max-height: 96px;
+  max-width: 165px;
+  max-height: 141px;
 }
 .hero-section {
+  margin-top: 4rem;
   width: 100%;
   position: relative;
   display: flex;
@@ -208,12 +255,13 @@ span {
   color: #52525b;
 }
 .interests {
-  margin-top: 5rem;
   position: relative;
   width: 100%;
   height: 390px;
   display: flex;
-  gap: 5rem;
+  justify-content: center;
+  align-items: center;
+  gap: 4rem;
 }
 .card-photo {
   width: 100px;
@@ -221,25 +269,23 @@ span {
   margin-bottom: 0.5rem;
 }
 .cat-card {
-  max-width: 200px;
-  text-align: center;
-  max-height: 145px;
+  max-width: 400px;
+  max-height: 245px;
   border: 1px solid #e9e9ec;
   padding: 0.5rem;
-  transform: rotate(-10deg);
   background: white;
   box-shadow: 2px 6px 20px 2px rgba(0, 0, 0, 0.2);
   margin-left: 1rem;
+  text-align: center;
 }
 .gym-card {
-  max-height: 200px;
-  max-width: 145px;
-  text-align: center;
+  max-width: 400px;
+  max-height: 245px;
   background: white;
   border: 1px solid #e9e9ec;
   padding: 0.5rem;
-  transform: rotate(10deg);
   box-shadow: 2px 4px 20px 2px rgba(0, 0, 0, 0.1);
+  text-align: center;
 }
 .photo1 {
   background: url("siwsiw.svg") no-repeat center;
@@ -344,7 +390,46 @@ footer p {
 .last-section-accentBtn:hover {
   background: #f4f4f5;
 }
+.mobile-header {
+  position: relative;
+  width: 100%;
+}
+.mobile-header-items {
+  position: fixed;
+  right: 0;
+  padding: 1rem;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: rgb(256, 256, 256, 0.8);
+  backdrop-filter: blur(20px);
+  z-index: 1000;
+}
 @media (min-width: 1024px) {
+  .hero-section {
+    margin-top: 0;
+  }
+  .mobile-header {
+    display: none;
+  }
+  .mobile-header-items {
+    display: none;
+  }
+  .hero-profile {
+    max-width: 96px;
+    max-height: 96px;
+  }
+  .app {
+    background: white;
+    width: 100%;
+    max-width: 768px;
+    padding: 0 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    margin: 0 auto;
+  }
   header {
     position: relative;
     height: 100px;
@@ -376,6 +461,7 @@ footer p {
     width: 600px;
     height: 390px;
     display: flex;
+    flex-direction: row;
     gap: 5rem;
   }
   .card-photo {
