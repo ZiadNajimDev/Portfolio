@@ -304,8 +304,7 @@ span {
   transform: rotate(-20deg);
 }
 .grey-stringg {
-  width: 600px;
-  max-width: 600px;
+  width: 100%;
   height: 0;
   border-top: 1px solid #e4e4e7;
   margin: 3rem 0;
@@ -420,5 +419,12 @@ footer p {
     color: #52525b;
     font-family: poppins;
     font-size: 0.8rem;
+  }
+  .grey-stringg {
+    width: 600px;
+    max-width: 600px;
+    height: 0;
+    border-top: 1px solid #e4e4e7;
+    margin: 3rem 0;
   }
 }
